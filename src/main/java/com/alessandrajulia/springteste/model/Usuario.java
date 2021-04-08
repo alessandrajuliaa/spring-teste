@@ -1,6 +1,6 @@
 package com.alessandrajulia.springteste.model;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -8,8 +8,18 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Usuario implements Serializable {
+
+    public Usuario(String nome, String login, String senha) {
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
